@@ -1,0 +1,81 @@
+@use '@styles/variables' as *;
+
+.date-picker-input {
+  --text-color: black;
+  --focus-color: #{$white-70};
+  --label-color: #{$white-70};
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: $font-family-default;
+
+  &--focus {
+    --focus-color: #{$primary};
+  }
+
+  &--disabled {
+    --focus-color: #{$white-40};
+    --text-color: #{$white-40};
+    --label-color: #{$white-40};
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &--readonly {
+    --focus-color: #{$white-40};
+    --label-color: #{$white-40};
+    cursor: default;
+    pointer-events: none;
+  }
+
+  &__label {
+    user-select: none;
+    color: var(--label-color);
+    font-size: 12px;
+  }
+
+  &__help {
+    user-select: none;
+    color: var(--label-color);
+    font-size: 12px;
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    height: 2.25rem;
+    padding: 4px;
+    border: 1px solid var(--focus-color);
+    border-radius: 8px;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+
+    &-icon {
+      color: var(--focus-color)
+    }
+
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: border-box;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: transparent;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  input:focus {
+    outline: none;
+    --focus-color: #{$white-70};
+  }
+
+  input::placeholder {
+    color: #{$white-70};
+  }
+}

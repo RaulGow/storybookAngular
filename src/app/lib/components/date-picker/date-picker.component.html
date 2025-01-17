@@ -1,0 +1,42 @@
+<div class="date-picker">
+  <div class="date-picker__inputs" [ngClass]="{
+    'date-picker__inputs--separated': separated,
+    'date-picker__inputs--vertical': layout === 'vertical'
+  }">
+    <app-date-picker-input
+      (click)="showCalendar('start')"
+      [label]="startLabel"
+      [placeholder]="startPlaceholder"
+      [helperText]="startHelperText"
+      [value]="startDate"
+      [isDisabled]="isDisabled"
+      [isFocus]="isFocus"
+      [isReadonly]="isReadonly">
+    </app-date-picker-input>
+
+    <app-date-picker-input *ngIf="isRange"
+      (click)="showCalendar('end')"
+      [label]="endLabel"
+      [placeholder]="endPlaceholder"
+      [helperText]="endHelperText"
+      [value]="endDate"
+      [isDisabled]="isDisabled"
+      [isFocus]="isFocus"
+      [isReadonly]="isReadonly">
+    </app-date-picker-input>
+  </div>
+
+  <!-- <div #fullScreenDiv class="date-picker__full-screen-div" *ngIf="isCalendarMobileVisible">
+    <button (click)="hideCalendar()">Cerrar</button>
+  </div> -->
+  <div class="date-picker__calendar" *ngIf="isCalendarMobileVisible">
+    <app-date-picker-calendar-mobile
+      [dateRecibedToInputStart]="startDate"
+      [dateRecibedToInputEnd]="endDate"
+      (calendarClosed)="hideCalendar()"
+      [isRange]="isRange"
+      (dateSelectedStart)="onDateSelectedStart($event)"
+      (dateSelectedEnd)="onDateSelectedEnd($event)">
+    </app-date-picker-calendar-mobile>
+  </div>
+</div>

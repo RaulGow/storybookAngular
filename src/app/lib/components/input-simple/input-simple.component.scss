@@ -1,0 +1,187 @@
+@use '@styles/variables' as *;
+
+.input-simple {
+  --text-color: #{$white-80};
+  --border-input: 1px solid #{$white-80};
+  --icon-color: #{$white-80};
+  --label-color: #{$white-80};
+  --help-color: #{$white-80};
+
+  font-family: $font-family-default;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &--focus {
+    --border-input: 2px solid #{$primary};
+    --icon-color: #{$primary};
+  }
+
+  &--error {
+    --border-input: 2px solid #{$secondary-80};
+    --icon-color: #{$secondary-80};
+    --help-color: #{$secondary-80};
+  }
+
+  &--disabled {
+    cursor: default;
+    --text-color: #{$white-40};
+    --border-input: 1px solid #{$white-40};
+    --icon-color: #{$white-40};
+    --label-color: #{$white-40};
+    --help-color: #{$white-40};
+  }
+
+  &--readonly {
+    cursor: default;
+    --border-input: 1px solid #{$white-40};
+    --icon-color: #{$white-40};
+    --label-color: #{$white-40};
+    --help-color: #{$white-40};
+
+    input {
+      cursor: default;
+    }
+  }
+
+  &__label {
+    user-select: none;
+    color: var(--label-color);
+    font-size: 12px;
+  }
+
+  &__content {
+    width: 100%;
+    display: flex;
+    height: 2.25rem;
+    padding: 4px;
+    border: var(--border-input);
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+
+    input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: transparent;
+      font-size: 1rem;
+      cursor: pointer;
+      user-select: none;
+
+      &:focus {
+        outline: none;
+        --focus-color: var(--text-color);
+      }
+
+      &::placeholder {
+        --text-color: black;
+      }
+
+      /* Para quitar las flechas en Chrome, Edge, y Safari */
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    &-icon {
+      display: flex;
+      align-content: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      color: var(--icon-color)
+    }
+
+  }
+
+  &__help {
+    user-select: none;
+    color: var(--help-color);
+    font-size: 12px;
+  }
+
+}
+
+// .date-picker-input {
+//   --text-color: black;
+//   --focus-color: #{$white-80};
+//   --label-color: #{$white-80};
+
+//   display: flex;
+//   flex-direction: column;
+//   gap: 4px;
+//   font-family: $font-family-default;
+
+//   &--focus {
+//     --focus-color: #{$primary};
+//   }
+
+//   &--disabled {
+//     --focus-color: #{$white-40};
+//     --text-color: #{$white-40};
+//     --label-color: #{$white-40};
+//     cursor: default;
+//     pointer-events: none;
+//   }
+
+//   &--readonly {
+//     --focus-color: #{$white-40};
+//     --label-color: #{$white-40};
+//     cursor: default;
+//     pointer-events: none;
+//   }
+
+//   &__label {
+//     user-select: none;
+//     color: var(--label-color);
+//     font-size: 12px;
+//   }
+
+//   &__help {
+//     user-select: none;
+//     color: var(--label-color);
+//     font-size: 12px;
+//   }
+
+//   &__content {
+//     width: 100%;
+//     display: flex;
+//     height: 2.25rem;
+//     padding: 4px;
+//     border: 1px solid var(--focus-color);
+//     border-radius: 4px;
+//     box-sizing: border-box;
+//     cursor: pointer;
+//     user-select: none;
+
+//     &-icon {
+//       color: var(--focus-color)
+//     }
+
+//   }
+
+//   input {
+//     width: 100%;
+//     height: 100%;
+//     border: none;
+//     background: border-box;
+//     font-size: 1rem;
+//     color: var(--text-color);
+//     background-color: transparent;
+//     cursor: pointer;
+//     user-select: none;
+//   }
+
+//   input:focus {
+//     outline: none;
+//     --focus-color: #{$white-80};
+//   }
+
+//   input::placeholder {
+//     color: #{$white-80};
+//   }
+// }

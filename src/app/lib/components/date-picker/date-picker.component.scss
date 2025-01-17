@@ -1,0 +1,37 @@
+@use '@styles/variables' as *;
+
+
+.date-picker {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  gap: 0.5rem;
+
+  @media screen and (max-width: 768px) {
+
+    width: 100%;
+  }
+
+  &__inputs {
+    display: flex;
+    width: fit-content;
+
+
+    &--separated {
+      gap: 8px;
+    }
+
+    &--vertical {
+      gap: 16px;
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: 768px) {
+      gap: 16px;
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+
+
+}

@@ -1,0 +1,118 @@
+@use '@styles/variables' as *;
+
+/* Estilos básicos para un botón */
+.btn {
+  padding: 8px 16px;
+  font-family: $font-family-default;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 600;
+  border: 2px solid $primary;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &.expanded {
+    width: 100%;
+  }
+
+  &.primary {
+    background-color: $primary;
+    color: #fff;
+
+    &:hover {
+      background-color: $primary-40;
+      border: 2px solid $primary-40;
+    }
+
+    &:active {
+      background-color: $primary-80;
+      border: 2px solid $primary-80;
+    }
+
+    &:disabled {
+      background-color: $white-10;
+      color: $white-80;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  &.secondary {
+    background-color: $white;
+    color: $primary;
+    border: 2px solid $primary;
+
+    &:hover {
+      background-color: $white-10;
+      color: $primary-80;
+      border: 2px solid $primary-80;
+    }
+
+    &:active {
+      background-color: $white;
+      color: $primary;
+      border: 2px solid $primary;
+    }
+
+    &:disabled {
+      border: 2px solid $white-80;
+      background-color: $white-10;
+      color: $white-80;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  &.tertiary {
+    background-color: $tertiary;
+    color: $white;
+    border: 2px solid $tertiary;
+
+    &:hover {
+      background-color: $tertiary-20;
+      color: $white;
+      border: 2px solid $tertiary-20;
+    }
+
+    &:active {
+      background-color: $tertiary-60;
+      color: $white;
+      border: 2px solid $tertiary-60;
+    }
+
+    &:disabled {
+      border: 2px solid $white-80;
+      background-color: $white-10;
+      color: $white-80;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  &.ghost {
+    background-color: transparent;
+    color: $tertiary;
+    border: 2px solid transparent;
+
+    &:hover {
+      background-color: $white-10;
+      color: $tertiary;
+      border: 2px solid $tertiary;
+    }
+
+    &:active {
+      background-color: $white;
+      color: $primary;
+      border: 2px solid $primary;
+    }
+
+    &:disabled {
+      border: 2px solid $white-80;
+      background-color: $white-10;
+      color: $white-80;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<button
+  class="btn"
+  [ngClass]="{
+    'primary': type === 'primary',
+    'secondary': type === 'secondary',
+    'tertiary': type === 'tertiary',
+    'ghost': type === 'ghost',
+    'expanded': expanded === true,
+  }"
+  [attr.tabindex]="tabIndex"
+  (click)="handleClick()"
+  (keydown)="handleKeydown($event)"
+  [disabled]="isDisabled"
+>
+  {{ label }}
+</button>

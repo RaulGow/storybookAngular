@@ -1,0 +1,25 @@
+<div class="date-picker-input" [ngClass]="{
+  'date-picker-input--focus': isFocus,
+  'date-picker-input--disabled': isDisabled,
+  'date-picker-input--readonly': isReadonly
+}">
+  <label class="date-picker-input__label" *ngIf="label">{{ label }}</label>
+  <div class="date-picker-input__content">
+    <input
+      #inputRef
+      type="text"
+      [value]="value"
+      (click)="onInputClick()"
+      [maxLength]="10"
+      [placeholder]="placeholder"
+      [disabled]="isDisabled"
+      (input)="onInput($event)"
+      (focus)="onFocusHandler($event)"
+      (blur)="onBlurHandler($event)"
+      (keypress)="onKeypress($event)" />
+    <div class="date-picker-input__content-icon" (click)="clickIconCalendar(inputRef)">
+      <app-icon [iconName]="'calendar-line'" [size]="24"></app-icon>
+    </div>
+  </div>
+  <span class="date-picker-input__help" *ngIf="helperText">{{ helperText }}</span>
+</div>

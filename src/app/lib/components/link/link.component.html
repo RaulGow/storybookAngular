@@ -1,0 +1,15 @@
+<div class="lib-link" (click)="handleClick()" [class.lib-link--alternative]="alternative">
+  @if(selectIconsToShow() == 'left' || selectIconsToShow() == 'both' && iconLeft) {
+    <span class="lib-link__icon-left">
+      <app-icon [iconName]="iconLeft ?? ''" [size]="16">
+      </app-icon>
+    </span>
+  }
+  <span class="lib-link__text" [class.lib-link__text--silent]="silent">{{text}}</span>
+  @if(selectIconsToShow() == 'right' || selectIconsToShow() == 'both' && iconRight) {
+    <span class="lib-link__icon-right">
+      <app-icon [iconName]="iconRight ?? ''" [size]="16">
+      </app-icon>
+    </span>
+  }
+</div>

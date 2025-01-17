@@ -1,0 +1,24 @@
+<div class="input-simple" [ngClass]="{
+  'input-simple--focus': isFocus,
+  'input-simple--disabled': isDisabled,
+  'input-simple--readonly': isReadonly,
+  'input-simple--error': isError
+}">
+  <label class="input-simple__label" *ngIf="label">{{ label }}</label>
+  <div class="input-simple__content">
+    <input #inputRef
+      [type]="type"
+      [value]="value"
+      [maxLength]="maxLength"
+      [placeholder]="placeholder"
+      [disabled]="isDisabled || isReadonly"
+      (input)="onInputHandler($event)"
+      (focus)="onFocusHandler($event)"
+      (blur)="onBlurHandler($event)"
+      (keydown)="onKeydown($event, inputRef)" />
+    <div class="input-simple__content-icon">
+      <app-icon [iconName]="'calendar-line'" [size]="24"></app-icon>
+    </div>
+  </div>
+  <span class="input-simple__help" *ngIf="helperText">{{ helperText }}</span>
+</div>

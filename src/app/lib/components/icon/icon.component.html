@@ -1,0 +1,6 @@
+<div
+  class="lib-icon"
+  *ngIf="iconSvg"
+  [innerHTML]="iconSvg | safeHtml"
+  [ngStyle]="{ width: size + 'px', height: size + 'px'}">
+</div>

@@ -1,0 +1,66 @@
+<div class="calendar-mobile">
+  <header class="calendar-mobile__header">
+    <h4>{{ isRange ? 'Selecciona un rango de fechas' : 'Selecciona una fecha' }}</h4>
+  </header>
+
+  <div class="calendar-mobile__body">
+    <div class="calendar-mobile__body-calendar1">
+      <div class="calendar-header">
+        <button (click)="goToPreviousMonth()">&lt;</button>
+        <span>{{ currentMonthStart }} de {{this.year}}</span>
+        <button (click)="goToNextMonth()">&gt;</button>
+      </div>
+      <div class="calendar-days">
+        <span *ngFor="let day of days">{{ day }}</span>
+      </div>
+      <div class="calendar-dates">
+        <div class="calendar-date" *ngFor="let date of dates" [class.selected]="
+            selectedDateStart &&
+            selectedDateStart.day === date &&
+            selectedDateStart.month === month &&
+            selectedDateStart.year === year
+          " (click)="selectDate(date, 'start')" [ngClass]="{'empty': date === null}">
+          {{ date }}
+        </div>
+      </div>
+    </div>
+
+    <div style="border: 1px solid black;" *ngIf="isRange"></div>
+
+    <div class="calendar-mobile__body-calendar1" *ngIf="isRange">
+      <div class="calendar-header">
+        <button (click)="goToPreviousMonth()">&lt;</button>
+        <span>{{ currentMonthEnd }} de {{this.year}}</span>
+        <button (click)="goToNextMonth()">&gt;</button>
+      </div>
+      <div class="calendar-days">
+        <span *ngFor="let day of days">{{ day }}</span>
+      </div>
+      <div class="calendar-dates">
+        <div class="calendar-date" *ngFor="let date of dates" [class.selected]="
+            selectedDateEnd &&
+            selectedDateEnd.day === date &&
+            selectedDateEnd.month === month &&
+            selectedDateEnd.year === year
+          " (click)="selectDate(date, 'end')" [ngClass]="{'empty': date === null}">
+          {{ date }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="calendar-mobile__footer">
+    <div class="button-wrapper">
+      <lib-button [type]="'secondary'" [label]="'Cancelar'" [tabIndex]="0" [isDisabled]="false" [expanded]="true"
+        (buttonClicked)="buttonClicked()">
+      </lib-button>
+    </div>
+    <div class="button-wrapper">
+      <lib-button [type]="'primary'" [label]="'Aceptar'" [tabIndex]="0" [isDisabled]="false" [expanded]="true"
+        (buttonClicked)="buttonClicked()">
+      </lib-button>
+    </div>
+  </footer>
+
+</div>

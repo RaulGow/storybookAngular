@@ -1,0 +1,31 @@
+<div class="lib-calendar">
+  <!-- Header con mes y año -->
+  <div class="lib-calendar__header">
+    <button class="lib-calendar__nav lib-calendar__nav--prev">
+      <app-icon [iconName]="'arrow-left-s-line'" [size]="24"></app-icon>
+    </button>
+    <span class="lib-calendar__month-year">{{ currentMonth }} 2025</span>
+    <button class="lib-calendar__nav lib-calendar__nav--next">
+      <app-icon [iconName]="'arrow-right-s-line'" [size]="24"></app-icon>
+    </button>
+  </div>
+
+  <div class="lib-calendar__calendar">
+    <!-- Días de la semana -->
+    <div class="lib-calendar__week-days-header">
+      <div class="lib-calendar__week-days-header-day" *ngFor="let dayLetter of weekDays">
+        {{ dayLetter | truncate: 3 }}
+      </div>
+    </div>
+
+    <!-- Días del mes -->
+    <div class="lib-calendar__month">
+      <div class="lib-calendar__month-day" *ngFor="let day of monthDays"
+        (click)="selectDay(day)"
+        [class.lib-calendar__month-day--empty]="day === 0"
+        [class.lib-calendar__month-day--selected]="day === selectedDay">
+        {{ day === 0 ? '' : day }}
+      </div>
+    </div>
+  </div>
+</div>

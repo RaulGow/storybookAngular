@@ -543,6 +543,118 @@
             }
         },
         {
+            "name": "CalendarComponent",
+            "id": "component-CalendarComponent-bc28d4f471d8e629e441ab804d61bcab80f62f40fa99507f1bb89ac4bc78af6ac6d0f109af0dcd48fc2ca00fe93636a0cdda12008daa632ceec088bd9c4cae7a",
+            "file": "src/app/lib/components/calendar/calendar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-calendar",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./calendar.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "buttonClicked",
+                    "defaultValue": "new EventEmitter<boolean>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnChanges",
+                    "args": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "changes",
+                            "type": "SimpleChanges",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": false,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'lib-calendar',\r\n  imports: [CommonModule],\r\n  templateUrl: './calendar.component.html',\r\n  styleUrl: './calendar.component.scss'\r\n})\r\nexport class CalendarComponent implements OnInit, OnChanges{\r\n\r\n  constructor() {\r\n\r\n  }\r\n  ngOnChanges(changes: SimpleChanges): void {\r\n    throw new Error('Method not implemented.');\r\n  }\r\n  ngOnInit(): void {\r\n    throw new Error('Method not implemented.');\r\n  }\r\n\r\n  @Input() label?: string;\r\n  @Output() buttonClicked = new EventEmitter<boolean>();\r\n\r\n}\r\n",
+            "styleUrl": "./calendar.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 10
+            },
+            "extends": [],
+            "implements": [
+                "OnInit",
+                "OnChanges"
+            ],
+            "templateData": "<div class=\"calendar\">\r\n  <!-- Header con mes y año -->\r\n  <div class=\"calendar__header\">\r\n    <button class=\"calendar__nav calendar__nav--prev\">&#9664;</button>\r\n    <span class=\"calendar__month-year\">Enero 2025</span>\r\n    <button class=\"calendar__nav calendar__nav--next\">&#9654;</button>\r\n  </div>\r\n\r\n  <!-- Días de la semana -->\r\n  <div class=\"calendar__weekdays\">\r\n    <div class=\"calendar__weekday\">Lun</div>\r\n    <div class=\"calendar__weekday\">Mar</div>\r\n    <div class=\"calendar__weekday\">Mié</div>\r\n    <div class=\"calendar__weekday\">Jue</div>\r\n    <div class=\"calendar__weekday\">Vie</div>\r\n    <div class=\"calendar__weekday\">Sáb</div>\r\n    <div class=\"calendar__weekday\">Dom</div>\r\n  </div>\r\n\r\n  <!-- Días del mes -->\r\n  <div class=\"calendar__days\">\r\n    <!-- Días de ejemplo, a reemplazar dinámicamente con JS -->\r\n    <div class=\"calendar__day\">1</div>\r\n    <div class=\"calendar__day\">2</div>\r\n    <div class=\"calendar__day\">3</div>\r\n    <!-- ... -->\r\n    <div class=\"calendar__day\">30</div>\r\n    <div class=\"calendar__day\">31</div>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
             "name": "DatePickerCalendarMobileComponent",
             "id": "component-DatePickerCalendarMobileComponent-c6164cf8870c1855986517df7c1da0c9bbbc77ad6b20c588e926e9c39d45707a9dfcbdd895589d98f5a2d9a29bd4c9646c02b865a6123151576fb7dde34910e6",
             "file": "src/app/lib/components/date-picker/components/date-picker-calendar-mobile/date-picker-calendar-mobile.component.ts",
@@ -3030,7 +3142,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 7,
+        "count": 6,
         "status": "low",
         "files": [
             {
@@ -3089,6 +3201,15 @@
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/lib/components/calendar/calendar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CalendarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {

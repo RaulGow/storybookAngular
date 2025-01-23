@@ -1,0 +1,15 @@
+@use '@styles/variables' as *;
+
+.lib-avatar {
+  border-radius: 50%;
+  border: 1px solid rgb(59, 59, 59);
+  height: 24px;
+  width: 24px;
+
+  &--text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}

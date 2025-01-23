@@ -1,0 +1,10 @@
+<div class="lib-avatar" [class.lib-avatar--text]="type == 'text'">
+  <span  *ngIf="type == 'text'">TeT</span>
+  <div *ngIf="type == 'image'">
+    <app-icon
+    [iconName]="'account-circle-fill'"
+    [fillColor]="'#000000'"
+    [size]="24">
+  </app-icon>
+  </div>
+</div>

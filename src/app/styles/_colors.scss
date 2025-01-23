@@ -1,9 +1,8 @@
-
 // Colors: MAIN
 $primary: #00806C;
 $primary-20: #AED4CE;
 $primary-40: #73B9AE;
-$primary-60: #00806C;
+$primary-60: #027660;
 $primary-80: #016557;
 
 $secondary: #ffffff;
@@ -12,11 +11,11 @@ $secondary-40: #FFE6E6;
 $secondary-60: #DE6F6F;
 $secondary-80: #C91717;
 
-$tertiary: #007878;
-$tertiary-20: #228C8C;
-$tertiary-40: #088A8A;
-$tertiary-60: #006B6B;
-$tertiary-80: #005D5D;
+$tertiary: #FF6F61; // Naranja suave, más cálido
+$tertiary-20: #FFB2A0; // Tercera variante más clara
+$tertiary-40: #FF8F75; // Tercera variante más fuerte
+$tertiary-60: #D96A5A; // Tercera variante más oscura
+$tertiary-80: #B7574C; // Tercera variante más oscura
 
 $black: #000000;
 $black-10: #4D4D4D;
@@ -37,4 +36,23 @@ $white-70: #949594;
 $white-80: #838383;
 $white-90: #6F7070;
 
-// Colors: HOVER
+// Color base para cada estado
+$success: #4CAF50; // Verde
+$success-light: #A5D6A7; // Verde claro
+$success-dark: #388E3C; // Verde oscuro
+
+$warning: #FF9800; // Naranja
+$warning-light: #FFCC80; // Naranja claro
+$warning-dark: #F57C00; // Naranja oscuro
+
+$error: #c5000f; // Rojo
+$error-light: #f28d8d; // Rojo claro (más suave que el color base)
+$error-dark: #9b0006; // Rojo oscuro (más intenso que el color base)
+
+$neutral: #9E9E9E; // Gris neutro
+$neutral-light: #E0E0E0; // Gris claro
+$neutral-dark: #616161; // Gris oscuro
+
+$info: #2196F3; // Azul
+$info-light: #90CAF9; // Azul claro
+$info-dark: #1976D2; // Azul oscuro

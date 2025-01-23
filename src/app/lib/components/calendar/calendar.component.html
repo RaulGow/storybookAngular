@@ -1,13 +1,28 @@
 <div class="lib-calendar">
   <!-- Header con mes y año -->
   <div class="lib-calendar__header">
-    <button class="lib-calendar__nav lib-calendar__nav--prev">
-      <app-icon [iconName]="'arrow-left-s-line'" [size]="24"></app-icon>
-    </button>
-    <span class="lib-calendar__month-year">{{ currentMonth }} 2025</span>
-    <button class="lib-calendar__nav lib-calendar__nav--next">
-      <app-icon [iconName]="'arrow-right-s-line'" [size]="24"></app-icon>
-    </button>
+    <div class="lib-calendar__controls" *ngIf="isRange">
+      <button
+        (click)="isSelectingStart = true"
+        [class.active]="isSelectingStart">
+        Cambiar Inicio
+      </button>
+      <button
+        (click)="isSelectingStart = false"
+        [class.active]="!isSelectingStart">
+        Cambiar Fin
+      </button>
+    </div>
+    <div class="lib-calendar__navigation">
+      <button class="lib-calendar__nav lib-calendar__nav--prev" (click)="previousMonth()">
+        <app-icon [iconName]="'arrow-left-s-line'" [size]="24"></app-icon>
+      </button>
+      <span class="lib-calendar__month-year">{{ currentMonth }} {{currentYear}}</span>
+      <button class="lib-calendar__nav lib-calendar__nav--next" (click)="nextMonth()">
+        <app-icon [iconName]="'arrow-right-s-line'" [size]="24"></app-icon>
+      </button>
+    </div>
+
   </div>
 
   <div class="lib-calendar__calendar">
@@ -23,7 +38,10 @@
       <div class="lib-calendar__month-day" *ngFor="let day of monthDays"
         (click)="selectDay(day)"
         [class.lib-calendar__month-day--empty]="day === 0"
-        [class.lib-calendar__month-day--selected]="day === selectedDay">
+        [class.lib-calendar__month-day--in-range]="isRange && isDayInRange(day)"
+        [class.lib-calendar__month-day--selected]="!isRange && day === selectedOneDay"
+        [class.lib-calendar__month-day--selected-start]="isRange && selectDayStart?.day === day"
+        [class.lib-calendar__month-day--selected-end]="isRange && selectDayEnd?.day === day">
         {{ day === 0 ? '' : day }}
       </div>
     </div>

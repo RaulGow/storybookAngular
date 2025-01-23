@@ -7,12 +7,49 @@
   flex-direction: column;
   gap: 1rem;
 
+  @media only screen and (min-width: 720px) {
+    max-width: 500px;
+  }
+
+  &__controls {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    button {
+      width: 100%;
+      font-size: 1rem;
+      color: $black;
+      border: none;
+      padding: 0;
+      background-color: transparent;
+      border-bottom: 2px solid $black;
+    }
+
+    button.active {
+      border-bottom: 4px solid $primary;
+      font-weight: 600;
+      color: $primary;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+  }
+
   &__header {
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
+    flex-direction: column;
     box-sizing: border-box;
     align-items: center;
-    height: 24px;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__nav {
@@ -31,7 +68,7 @@
   }
 
   &__month-year {
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: bold;
   }
 
@@ -70,29 +107,47 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $white-20;
-    border-radius: 5px;
+    background-color: $white-10;
+    border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
     aspect-ratio: 1; // Asegura que cada día sea un cuadrado
     width: 100%; // Hace que se ajuste automáticamente al tamaño del grid
 
-    &:hover {
-      background-color: $white-50;
-      font-weight: 600;
-      color: $black;
+    &--in-range{
+    background-color: $primary-20;
+    border-radius: 0;
+
     }
 
     &--selected {
       background-color: $primary;
       font-weight: 600;
       color: $white;
+
+      &-start {
+        border-radius: 8px 0px 0px 8px;
+        background-color: $primary;
+        color: $white;
+      }
+
+      &-end {
+        border-radius: 0px 8px 8px 0px;
+        background-color: $primary;
+        color: $white;
+      }
     }
 
     &--empty {
       background-color: transparent;
       cursor: default;
       pointer-events: none;
+    }
+
+    &:hover {
+      background-color: $white-40;
+      font-weight: 600;
+      color: $black;
     }
   }
 

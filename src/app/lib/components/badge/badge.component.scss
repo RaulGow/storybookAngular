@@ -1,0 +1,38 @@
+@use '@styles/variables' as *;
+
+.lib-badge {
+  font-family: $font-family-default;
+  display: inline-block;
+  background-color: $primary; /* Fondo rojo */
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 2px 10px;
+  border-radius: 12px;
+  text-align: center;
+
+  &--success {
+    background-color: $success;
+  }
+
+  &--error {
+    background-color: $error;
+  }
+
+  &--warning {
+    background-color: $warning;
+  }
+
+  &--neutral {
+    background-color: $neutral;
+  }
+
+  &--info {
+    background-color: $info;
+  }
+
+  &--default {
+    background-color: $white-90;
+  }
+
+}

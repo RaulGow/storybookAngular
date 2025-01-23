@@ -43,9 +43,240 @@
             "standalone": true,
             "ngname": "safeHtml",
             "sourceCode": "import { Pipe, PipeTransform } from '@angular/core';\r\nimport { DomSanitizer, SafeHtml } from '@angular/platform-browser';\r\n\r\n@Pipe({\r\n  name: 'safeHtml',\r\n  standalone: true\r\n})\r\nexport class SafeHtmlPipe implements PipeTransform {\r\n  constructor(private sanitizer: DomSanitizer) {}\r\n\r\n  transform(value: string): SafeHtml {\r\n    return this.sanitizer.bypassSecurityTrustHtml(value);\r\n  }\r\n}\r\n"
+        },
+        {
+            "name": "TruncatePipe",
+            "id": "pipe-TruncatePipe-38215922f3985755775f3c97dedef0fbe71753568ed4aae7fe45efb5f1f6a0082bac85700277514c84db1298de7cea82cc9c71a11b61ff26d52e22b65598abaf",
+            "file": "src/app/pipes/truncate.pipe.ts",
+            "type": "pipe",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "transform",
+                    "args": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "limit",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "3"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 7,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "value",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "limit",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "defaultValue": "3",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "standalone": false,
+            "ngname": "truncate",
+            "sourceCode": "import { Pipe, PipeTransform } from '@angular/core';\r\n\r\n@Pipe({\r\n  name: 'truncate'\r\n})\r\nexport class TruncatePipe implements PipeTransform {\r\n  transform(value: string, limit: number = 3): string {\r\n    if (!value) return '';\r\n    return value.length > limit ? value.substring(0, limit) : value;\r\n  }\r\n}\r\n"
         }
     ],
     "interfaces": [
+        {
+            "name": "DaySelected",
+            "id": "interface-DaySelected-ca9d180b951a32ed8f6bee5bbbf2dfdbcfa1a78c34908745e0c22731ff545b6803523d06e35a6a805f902562fc6fe09f86f3e7e9afbd50147579d68383354bf4",
+            "file": "src/app/interfaces/daySelectedCalendar.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DaySelected {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface DaySelectedStart {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface DaySelectedEnd {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface RangeSelected {\r\n  dateStart: {\r\n    day: number;\r\n    month: number;\r\n    year: number;\r\n  },\r\n  dateEnd: {\r\n    day: number;\r\n    month: number;\r\n    year: number;\r\n  }\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "day",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                },
+                {
+                    "name": "month",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "year",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "DaySelectedEnd",
+            "id": "interface-DaySelectedEnd-ca9d180b951a32ed8f6bee5bbbf2dfdbcfa1a78c34908745e0c22731ff545b6803523d06e35a6a805f902562fc6fe09f86f3e7e9afbd50147579d68383354bf4",
+            "file": "src/app/interfaces/daySelectedCalendar.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DaySelected {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface DaySelectedStart {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface DaySelectedEnd {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface RangeSelected {\r\n  dateStart: {\r\n    day: number;\r\n    month: number;\r\n    year: number;\r\n  },\r\n  dateEnd: {\r\n    day: number;\r\n    month: number;\r\n    year: number;\r\n  }\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "day",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                },
+                {
+                    "name": "month",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
+                    "name": "year",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "DaySelectedStart",
+            "id": "interface-DaySelectedStart-ca9d180b951a32ed8f6bee5bbbf2dfdbcfa1a78c34908745e0c22731ff545b6803523d06e35a6a805f902562fc6fe09f86f3e7e9afbd50147579d68383354bf4",
+            "file": "src/app/interfaces/daySelectedCalendar.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DaySelected {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface DaySelectedStart {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface DaySelectedEnd {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface RangeSelected {\r\n  dateStart: {\r\n    day: number;\r\n    month: number;\r\n    year: number;\r\n  },\r\n  dateEnd: {\r\n    day: number;\r\n    month: number;\r\n    year: number;\r\n  }\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "day",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "month",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "year",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "RangeSelected",
+            "id": "interface-RangeSelected-ca9d180b951a32ed8f6bee5bbbf2dfdbcfa1a78c34908745e0c22731ff545b6803523d06e35a6a805f902562fc6fe09f86f3e7e9afbd50147579d68383354bf4",
+            "file": "src/app/interfaces/daySelectedCalendar.interface.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "export interface DaySelected {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface DaySelectedStart {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface DaySelectedEnd {\r\n  day: number;\r\n  month: number;\r\n  year: number;\r\n}\r\n\r\nexport interface RangeSelected {\r\n  dateStart: {\r\n    day: number;\r\n    month: number;\r\n    year: number;\r\n  },\r\n  dateEnd: {\r\n    day: number;\r\n    month: number;\r\n    year: number;\r\n  }\r\n}\r\n",
+            "properties": [
+                {
+                    "name": "dateEnd",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "dateStart",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 171,
+            "methods": [],
+            "extends": []
+        },
         {
             "name": "selectedDateStart",
             "id": "interface-selectedDateStart-c6164cf8870c1855986517df7c1da0c9bbbc77ad6b20c588e926e9c39d45707a9dfcbdd895589d98f5a2d9a29bd4c9646c02b865a6123151576fb7dde34910e6",
@@ -118,6 +349,190 @@
         }
     ],
     "injectables": [
+        {
+            "name": "CalendarService",
+            "id": "injectable-CalendarService-14298d22e53d51b5266824c8b208168fd1037834b22ffef558035b03e04128e269576a8155191e3606137c56c214e60d7c20103803158e0e8504ff1f68152f6d",
+            "file": "src/app/services/calendar.service.ts",
+            "properties": [
+                {
+                    "name": "currentDate",
+                    "defaultValue": "new Date()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Date",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "currentDay",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "currentMonth",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "currentYear",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "days",
+                    "defaultValue": "Object.values(Weekdays)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 15
+                },
+                {
+                    "name": "daysOfMonth",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 16
+                },
+                {
+                    "name": "months",
+                    "defaultValue": "Object.values(Months)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                }
+            ],
+            "methods": [
+                {
+                    "name": "generateCalendar",
+                    "args": [
+                        {
+                            "name": "date",
+                            "type": "string | Date",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 49,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "date",
+                            "type": "string | Date",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "getMonthDays",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "nextMonth",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 69,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "previousMonth",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 82,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ]
+                },
+                {
+                    "name": "updateCalendar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 65,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        125
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\r\nimport { Months } from '../enums/dates.enum';\r\nimport { Weekdays } from '../enums/dates.enum';\r\n\r\n@Injectable({\r\n  providedIn: 'root'\r\n})\r\nexport class CalendarService {\r\n\r\n  currentDate: Date = new Date();\r\n  currentYear: number = 0;\r\n  currentMonth: number = 0;\r\n  currentDay: number = 0;\r\n  months = Object.values(Months);\r\n  days = Object.values(Weekdays);\r\n  daysOfMonth: number[] = [];\r\n\r\n\r\n  constructor() {\r\n    console.log('constructor Servicio')\r\n\r\n  }\r\n\r\n  public getMonthDays() {\r\n\r\n    this.daysOfMonth = []; // Reinicia los días para evitar acumulaciones.\r\n\r\n    // Obtén el número total de días en el mes.\r\n    const daysInMonth = new Date(this.currentYear, this.currentMonth + 1, 0).getDate();\r\n\r\n    // Obtén el día de la semana del 1er día del mes (0 = domingo, 1 = lunes, ..., 6 = sábado).\r\n    const firstDayOfWeek = new Date(this.currentYear, this.currentMonth, 1).getDay();\r\n\r\n    // Asegúrate de que la semana comience en lunes en lugar de domingo.\r\n    const adjustedFirstDay = (firstDayOfWeek === 0 ? 6 : firstDayOfWeek - 1);\r\n\r\n    // Añade días vacíos al principio para que el día 1 comience en el día correcto.\r\n    for (let i = 0; i < adjustedFirstDay; i++) {\r\n      this.daysOfMonth.push(0); // Usa `null` para representar los días vacíos.\r\n    }\r\n\r\n    // Añade los días reales del mes.\r\n    for (let i = 1; i <= daysInMonth; i++) {\r\n      this.daysOfMonth.push(i);\r\n    }\r\n\r\n  }\r\n\r\n  public generateCalendar(date: string | Date) {\r\n\r\n    if (typeof date === 'string') {\r\n      [this.currentDay, this.currentMonth, this.currentYear] = date.split(\"/\").map(Number);\r\n      console.log('fecha', date)\r\n      this.currentMonth -= 1;\r\n    } else {\r\n      this.currentYear = this.currentDate.getFullYear();\r\n      this.currentMonth = this.currentDate.getMonth();\r\n      this.currentDay = this.currentDate.getDate();\r\n    }\r\n\r\n    this.getMonthDays()\r\n\r\n  }\r\n\r\n  public updateCalendar() {\r\n\r\n  }\r\n\r\n  public nextMonth() {\r\n\r\n    this.currentMonth++;\r\n\r\n    if (this.currentMonth > 11) { // Si supera el último mes\r\n      this.currentMonth = 0; // Volver al primer mes\r\n      this.currentYear++; // Incrementar el año\r\n      console.log('Cambio de año:', this.currentYear);\r\n    }\r\n\r\n    this.getMonthDays();\r\n  }\r\n\r\n  public previousMonth() {\r\n\r\n    this.currentMonth--;\r\n\r\n    if (this.currentMonth < 0) { // Si pasa al mes anterior a enero\r\n      this.currentMonth = 11; // Volver al último mes del año anterior\r\n      this.currentYear--; // Decrementar el año\r\n      console.log('Cambio de año:', this.currentYear);\r\n    }\r\n\r\n    this.getMonthDays();\r\n  }\r\n\r\n\r\n\r\n}\r\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 16
+            },
+            "extends": [],
+            "type": "injectable"
+        },
         {
             "name": "IconService",
             "id": "injectable-IconService-b2f7a51eaaf4249817634acfa9990b32d6bccd20bfb7d5595fa5cda93a12f157c4741e0b9134a4ee262563227bf9a5c587d655e271d33d7f34404c2d65080e34",
@@ -544,7 +959,7 @@
         },
         {
             "name": "CalendarComponent",
-            "id": "component-CalendarComponent-bc28d4f471d8e629e441ab804d61bcab80f62f40fa99507f1bb89ac4bc78af6ac6d0f109af0dcd48fc2ca00fe93636a0cdda12008daa632ceec088bd9c4cae7a",
+            "id": "component-CalendarComponent-49b3212b151a324b9cac99896ea35320903e572d36e427bd18b3595d053f83d19f9a449c8ea153b72c836e2a4bc6c6f71540d8a12211c2c7351086e5d2c8c7b5",
             "file": "src/app/lib/components/calendar/calendar.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -561,26 +976,167 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
-                    "name": "label",
+                    "name": "initDate",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 16,
                     "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "isRange",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
                     "decorators": []
                 }
             ],
             "outputsClass": [
                 {
-                    "name": "buttonClicked",
-                    "defaultValue": "new EventEmitter<boolean>()",
+                    "name": "daySeleted",
+                    "defaultValue": "new EventEmitter<DaySelected>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 23,
-                    "type": "EventEmitter"
+                    "line": 18,
+                    "type": "EventEmitter<DaySelected>"
+                },
+                {
+                    "name": "rangeSeleted",
+                    "defaultValue": "new EventEmitter<RangeSelected>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "EventEmitter<RangeSelected>"
                 }
             ],
-            "propertiesClass": [],
+            "propertiesClass": [
+                {
+                    "name": "currentMonth",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "currentYear",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "isSelectingStart",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 27
+                },
+                {
+                    "name": "monthDays",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                },
+                {
+                    "name": "selectDayEnd",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DaySelectedEnd",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 26
+                },
+                {
+                    "name": "selectDayStart",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "DaySelectedStart",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "selectedOneDay",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 23
+                },
+                {
+                    "name": "weekDays",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 20
+                }
+            ],
             "methodsClass": [
+                {
+                    "name": "isDayInRange",
+                    "args": [
+                        {
+                            "name": "day",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "boolean",
+                    "typeParameters": [],
+                    "line": 125,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "day",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "nextMonth",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 105,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "ngOnChanges",
                     "args": [
@@ -594,7 +1150,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 15,
+                    "line": 35,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "jsdoctags": [
@@ -615,7 +1171,65 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 18,
+                    "line": 38,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "previousMonth",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 111,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "selectDay",
+                    "args": [
+                        {
+                            "name": "day",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 52,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "day",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "updateCalendar",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 46,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "updateData",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 118,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -629,12 +1243,20 @@
                 {
                     "name": "CommonModule",
                     "type": "module"
+                },
+                {
+                    "name": "TruncatePipe",
+                    "type": "pipe"
+                },
+                {
+                    "name": "IconComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'lib-calendar',\r\n  imports: [CommonModule],\r\n  templateUrl: './calendar.component.html',\r\n  styleUrl: './calendar.component.scss'\r\n})\r\nexport class CalendarComponent implements OnInit, OnChanges{\r\n\r\n  constructor() {\r\n\r\n  }\r\n  ngOnChanges(changes: SimpleChanges): void {\r\n    throw new Error('Method not implemented.');\r\n  }\r\n  ngOnInit(): void {\r\n    throw new Error('Method not implemented.');\r\n  }\r\n\r\n  @Input() label?: string;\r\n  @Output() buttonClicked = new EventEmitter<boolean>();\r\n\r\n}\r\n",
+            "sourceCode": "import { Component, EventEmitter, Input, OnChanges, OnInit, Output, output, SimpleChanges } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { TruncatePipe } from '../../../pipes/truncate.pipe';\r\nimport { CalendarService } from '../../../services/calendar.service';\r\nimport { IconComponent } from '../icon/icon.component';\r\nimport { DaySelected, DaySelectedEnd, DaySelectedStart, RangeSelected } from '../../../interfaces/daySelectedCalendar.interface';\r\n\r\n\r\n@Component({\r\n  selector: 'lib-calendar',\r\n  imports: [CommonModule, TruncatePipe, IconComponent],\r\n  templateUrl: './calendar.component.html',\r\n  styleUrl: './calendar.component.scss'\r\n})\r\nexport class CalendarComponent implements OnInit, OnChanges {\r\n  @Input() initDate?: string;\r\n  @Input() isRange?: boolean = false;\r\n  @Output() daySeleted: EventEmitter<DaySelected> = new EventEmitter<DaySelected>();\r\n  @Output() rangeSeleted: EventEmitter<RangeSelected> = new EventEmitter<RangeSelected>();\r\n  weekDays: string[] = [];\r\n  monthDays: number[] = [];\r\n  currentMonth: string = '';\r\n  selectedOneDay?: number;\r\n  currentYear: number = 0;\r\n  selectDayStart?: DaySelectedStart;\r\n  selectDayEnd?: DaySelectedEnd;\r\n  isSelectingStart: boolean = true; // Variable para determinar si se está seleccionando el inicio o el fin\r\n\r\n  constructor(private calendarService: CalendarService) {\r\n    console.log('constructor Component')\r\n\r\n    this.weekDays = calendarService.days // añado los dias de lunesa a domingo\r\n\r\n  }\r\n  ngOnChanges(changes: SimpleChanges): void {\r\n    this.updateCalendar();\r\n  }\r\n  ngOnInit(): void {\r\n\r\n    console.log('Init Component')\r\n    this.updateCalendar();\r\n    this.currentYear = this.calendarService.currentYear;\r\n\r\n  }\r\n\r\n  updateCalendar(): void {\r\n    const date = this.initDate || new Date()\r\n    this.calendarService.generateCalendar(date)\r\n    this.updateData();\r\n  }\r\n\r\n  selectDay(day: number) {\r\n    const selectedDay = {\r\n      day,\r\n      month: this.calendarService.currentMonth,\r\n      year: this.calendarService.currentYear,\r\n    };\r\n\r\n    if (this.isRange) {\r\n      if (this.isSelectingStart) {\r\n        // Seleccionar el inicio del rango\r\n        this.selectDayStart = selectedDay;\r\n\r\n        // Si el inicio es posterior al fin, reinicia el fin\r\n        if (this.selectDayEnd &&\r\n          (selectedDay.year > this.selectDayEnd.year ||\r\n            (selectedDay.year === this.selectDayEnd.year && selectedDay.month > this.selectDayEnd.month) ||\r\n            (selectedDay.year === this.selectDayEnd.year && selectedDay.month === this.selectDayEnd.month && selectedDay.day > this.selectDayEnd.day))) {\r\n          this.selectDayEnd = undefined;\r\n          console.log('Fin del rango reiniciado porque el inicio es posterior al fin.');\r\n        }\r\n      } else {\r\n        // Seleccionar el fin del rango\r\n        this.selectDayEnd = selectedDay;\r\n\r\n        // Si el fin es anterior al inicio, reinicia el inicio\r\n        if (this.selectDayStart &&\r\n          (selectedDay.year < this.selectDayStart.year ||\r\n            (selectedDay.year === this.selectDayStart.year && selectedDay.month < this.selectDayStart.month) ||\r\n            (selectedDay.year === this.selectDayStart.year && selectedDay.month === this.selectDayStart.month && selectedDay.day < this.selectDayStart.day))) {\r\n          this.selectDayStart = undefined;\r\n          console.log('Inicio del rango reiniciado porque el fin es anterior al inicio.');\r\n        }\r\n\r\n        // Emitir el rango si ambos extremos están definidos\r\n        if (this.selectDayStart && this.selectDayEnd) {\r\n          this.rangeSeleted.emit({\r\n            dateStart: this.selectDayStart,\r\n            dateEnd: this.selectDayEnd,\r\n          });\r\n        }\r\n      }\r\n    } else {\r\n      // Selección de un solo día\r\n      this.calendarService.currentDay = day;\r\n      this.selectedOneDay = this.calendarService.currentDay;\r\n      this.daySeleted.emit({\r\n        day: day,\r\n        month: this.calendarService.currentMonth,\r\n        year: this.calendarService.currentYear,\r\n      });\r\n    }\r\n  }\r\n\r\n  nextMonth() {\r\n    this.calendarService.nextMonth();\r\n    this.calendarService.currentDay = 0;\r\n    this.updateData();\r\n  }\r\n\r\n  previousMonth() {\r\n    this.calendarService.previousMonth();\r\n    this.calendarService.currentDay = 0;\r\n    this.updateData();\r\n\r\n  }\r\n\r\n  updateData() {\r\n    this.currentMonth = this.calendarService.months[this.calendarService.currentMonth]; //obtengo el literal del mes de la fecha\r\n    this.monthDays = this.calendarService.daysOfMonth; // añado los dias de lunesa a domingo\r\n    this.selectedOneDay = this.calendarService.currentDay;\r\n    this.currentYear = this.calendarService.currentYear;\r\n  }\r\n\r\n  isDayInRange(day: number): boolean {\r\n    if (!this.selectDayStart || !this.selectDayEnd) {\r\n      return false;\r\n    }\r\n\r\n    const startDate = new Date(this.selectDayStart.year, this.selectDayStart.month, this.selectDayStart.day);\r\n    const endDate = new Date(this.selectDayEnd.year, this.selectDayEnd.month, this.selectDayEnd.day);\r\n    const currentDate = new Date(this.calendarService.currentYear, this.calendarService.currentMonth, day);\r\n\r\n    return currentDate >= startDate && currentDate <= endDate;\r\n  }\r\n\r\n}\r\n",
             "styleUrl": "./calendar.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
@@ -644,15 +1266,33 @@
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
-                "args": [],
-                "line": 10
+                "args": [
+                    {
+                        "name": "calendarService",
+                        "type": "CalendarService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 27,
+                "jsdoctags": [
+                    {
+                        "name": "calendarService",
+                        "type": "CalendarService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
             },
             "extends": [],
             "implements": [
                 "OnInit",
                 "OnChanges"
             ],
-            "templateData": "<div class=\"calendar\">\r\n  <!-- Header con mes y año -->\r\n  <div class=\"calendar__header\">\r\n    <button class=\"calendar__nav calendar__nav--prev\">&#9664;</button>\r\n    <span class=\"calendar__month-year\">Enero 2025</span>\r\n    <button class=\"calendar__nav calendar__nav--next\">&#9654;</button>\r\n  </div>\r\n\r\n  <!-- Días de la semana -->\r\n  <div class=\"calendar__weekdays\">\r\n    <div class=\"calendar__weekday\">Lun</div>\r\n    <div class=\"calendar__weekday\">Mar</div>\r\n    <div class=\"calendar__weekday\">Mié</div>\r\n    <div class=\"calendar__weekday\">Jue</div>\r\n    <div class=\"calendar__weekday\">Vie</div>\r\n    <div class=\"calendar__weekday\">Sáb</div>\r\n    <div class=\"calendar__weekday\">Dom</div>\r\n  </div>\r\n\r\n  <!-- Días del mes -->\r\n  <div class=\"calendar__days\">\r\n    <!-- Días de ejemplo, a reemplazar dinámicamente con JS -->\r\n    <div class=\"calendar__day\">1</div>\r\n    <div class=\"calendar__day\">2</div>\r\n    <div class=\"calendar__day\">3</div>\r\n    <!-- ... -->\r\n    <div class=\"calendar__day\">30</div>\r\n    <div class=\"calendar__day\">31</div>\r\n  </div>\r\n</div>\r\n"
+            "templateData": "<div class=\"lib-calendar\">\r\n  <!-- Header con mes y año -->\r\n  <div class=\"lib-calendar__header\">\r\n    <div class=\"lib-calendar__controls\" *ngIf=\"isRange\">\r\n      <button\r\n        (click)=\"isSelectingStart = true\"\r\n        [class.active]=\"isSelectingStart\">\r\n        Cambiar Inicio\r\n      </button>\r\n      <button\r\n        (click)=\"isSelectingStart = false\"\r\n        [class.active]=\"!isSelectingStart\">\r\n        Cambiar Fin\r\n      </button>\r\n    </div>\r\n    <div class=\"lib-calendar__navigation\">\r\n      <button class=\"lib-calendar__nav lib-calendar__nav--prev\" (click)=\"previousMonth()\">\r\n        <app-icon [iconName]=\"'arrow-left-s-line'\" [size]=\"24\"></app-icon>\r\n      </button>\r\n      <span class=\"lib-calendar__month-year\">{{ currentMonth }} {{currentYear}}</span>\r\n      <button class=\"lib-calendar__nav lib-calendar__nav--next\" (click)=\"nextMonth()\">\r\n        <app-icon [iconName]=\"'arrow-right-s-line'\" [size]=\"24\"></app-icon>\r\n      </button>\r\n    </div>\r\n\r\n  </div>\r\n\r\n  <div class=\"lib-calendar__calendar\">\r\n    <!-- Días de la semana -->\r\n    <div class=\"lib-calendar__week-days-header\">\r\n      <div class=\"lib-calendar__week-days-header-day\" *ngFor=\"let dayLetter of weekDays\">\r\n        {{ dayLetter | truncate: 3 }}\r\n      </div>\r\n    </div>\r\n\r\n    <!-- Días del mes -->\r\n    <div class=\"lib-calendar__month\">\r\n      <div class=\"lib-calendar__month-day\" *ngFor=\"let day of monthDays\"\r\n        (click)=\"selectDay(day)\"\r\n        [class.lib-calendar__month-day--empty]=\"day === 0\"\r\n        [class.lib-calendar__month-day--in-range]=\"isRange && isDayInRange(day)\"\r\n        [class.lib-calendar__month-day--selected]=\"!isRange && day === selectedOneDay\"\r\n        [class.lib-calendar__month-day--selected-start]=\"isRange && selectDayStart?.day === day\"\r\n        [class.lib-calendar__month-day--selected-end]=\"isRange && selectDayEnd?.day === day\">\r\n        {{ day === 0 ? '' : day }}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "DatePickerCalendarMobileComponent",
@@ -2974,6 +3614,142 @@
                 "deprecationMessage": "",
                 "description": "",
                 "file": "src/app/enums/input-type.enum.ts"
+            },
+            {
+                "name": "Months",
+                "childs": [
+                    {
+                        "name": "January",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Enero"
+                    },
+                    {
+                        "name": "February",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Febrero"
+                    },
+                    {
+                        "name": "March",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Marzo"
+                    },
+                    {
+                        "name": "April",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Abril"
+                    },
+                    {
+                        "name": "May",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Mayo"
+                    },
+                    {
+                        "name": "June",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Junio"
+                    },
+                    {
+                        "name": "July",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Julio"
+                    },
+                    {
+                        "name": "August",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Agosto"
+                    },
+                    {
+                        "name": "September",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Septiembre"
+                    },
+                    {
+                        "name": "October",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Octubre"
+                    },
+                    {
+                        "name": "November",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Noviembre"
+                    },
+                    {
+                        "name": "December",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Diciembre"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/app/enums/dates.enum.ts"
+            },
+            {
+                "name": "Weekdays",
+                "childs": [
+                    {
+                        "name": "Monday",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Lunes"
+                    },
+                    {
+                        "name": "Tuesday",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Martes"
+                    },
+                    {
+                        "name": "Wednesday",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Miércoles"
+                    },
+                    {
+                        "name": "Thursday",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Jueves"
+                    },
+                    {
+                        "name": "Friday",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Viernes"
+                    },
+                    {
+                        "name": "Saturday",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Sábado"
+                    },
+                    {
+                        "name": "Sunday",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "value": "Domingo"
+                    }
+                ],
+                "ctype": "miscellaneous",
+                "subtype": "enum",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "file": "src/app/enums/dates.enum.ts"
             }
         ],
         "groupedVariables": {
@@ -3122,6 +3898,144 @@
                     "description": "",
                     "file": "src/app/enums/input-type.enum.ts"
                 }
+            ],
+            "src/app/enums/dates.enum.ts": [
+                {
+                    "name": "Months",
+                    "childs": [
+                        {
+                            "name": "January",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Enero"
+                        },
+                        {
+                            "name": "February",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Febrero"
+                        },
+                        {
+                            "name": "March",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Marzo"
+                        },
+                        {
+                            "name": "April",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Abril"
+                        },
+                        {
+                            "name": "May",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Mayo"
+                        },
+                        {
+                            "name": "June",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Junio"
+                        },
+                        {
+                            "name": "July",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Julio"
+                        },
+                        {
+                            "name": "August",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Agosto"
+                        },
+                        {
+                            "name": "September",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Septiembre"
+                        },
+                        {
+                            "name": "October",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Octubre"
+                        },
+                        {
+                            "name": "November",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Noviembre"
+                        },
+                        {
+                            "name": "December",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Diciembre"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/app/enums/dates.enum.ts"
+                },
+                {
+                    "name": "Weekdays",
+                    "childs": [
+                        {
+                            "name": "Monday",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Lunes"
+                        },
+                        {
+                            "name": "Tuesday",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Martes"
+                        },
+                        {
+                            "name": "Wednesday",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Miércoles"
+                        },
+                        {
+                            "name": "Thursday",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Jueves"
+                        },
+                        {
+                            "name": "Friday",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Viernes"
+                        },
+                        {
+                            "name": "Saturday",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Sábado"
+                        },
+                        {
+                            "name": "Sunday",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "value": "Domingo"
+                        }
+                    ],
+                    "ctype": "miscellaneous",
+                    "subtype": "enum",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "file": "src/app/enums/dates.enum.ts"
+                }
             ]
         },
         "groupedTypeAliases": {
@@ -3142,7 +4056,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 6,
+        "count": 5,
         "status": "low",
         "files": [
             {
@@ -3195,6 +4109,42 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/interfaces/daySelectedCalendar.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "DaySelected",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/interfaces/daySelectedCalendar.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "DaySelectedEnd",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/interfaces/daySelectedCalendar.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "DaySelectedStart",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/interfaces/daySelectedCalendar.interface.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "RangeSelected",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/lib/components/button/button.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -3209,7 +4159,7 @@
                 "linktype": "component",
                 "name": "CalendarComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/6",
+                "coverageCount": "0/22",
                 "status": "low"
             },
             {
@@ -3292,6 +4242,24 @@
                 "name": "SafeHtmlPipe",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/pipes/truncate.pipe.ts",
+                "type": "pipe",
+                "linktype": "pipe",
+                "name": "TruncatePipe",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/services/calendar.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "CalendarService",
+                "coveragePercent": 0,
+                "coverageCount": "0/14",
                 "status": "low"
             },
             {

@@ -44,29 +44,52 @@ export class CalendarService {
       this.daysOfMonth.push(i);
     }
 
-    console.log('MES:', this.daysOfMonth)
-
   }
 
   public generateCalendar(date: string | Date) {
 
     if (typeof date === 'string') {
       [this.currentDay, this.currentMonth, this.currentYear] = date.split("/").map(Number);
+      console.log('fecha', date)
       this.currentMonth -= 1;
-      console.log(this.currentYear);
-      console.log(this.currentMonth);
-      console.log(this.currentDay);
     } else {
       this.currentYear = this.currentDate.getFullYear();
       this.currentMonth = this.currentDate.getMonth();
       this.currentDay = this.currentDate.getDate();
-      console.log(this.currentYear);
-      console.log(this.currentMonth);
-      console.log(this.currentDay);
     }
 
     this.getMonthDays()
 
+  }
+
+  public updateCalendar() {
+
+  }
+
+  public nextMonth() {
+
+    this.currentMonth++;
+
+    if (this.currentMonth > 11) { // Si supera el último mes
+      this.currentMonth = 0; // Volver al primer mes
+      this.currentYear++; // Incrementar el año
+      console.log('Cambio de año:', this.currentYear);
+    }
+
+    this.getMonthDays();
+  }
+
+  public previousMonth() {
+
+    this.currentMonth--;
+
+    if (this.currentMonth < 0) { // Si pasa al mes anterior a enero
+      this.currentMonth = 11; // Volver al último mes del año anterior
+      this.currentYear--; // Decrementar el año
+      console.log('Cambio de año:', this.currentYear);
+    }
+
+    this.getMonthDays();
   }
 
 

@@ -6,14 +6,24 @@ const meta: Meta<CalendarComponent> = {
   component: CalendarComponent,
   tags: ['autodocs'],
   args: {
-    initDate: '17/01/2025'
+    initDate: '17/01/2025',
+    isRange: false,
   },
   argTypes: {
+    isRange: {
+      control: 'boolean',
+      description: 'Indicar si controlamos rango fecha simple',
+      defaultValue: false,
+    },
     initDate: {
       control: 'text',
       description: 'Fecha de inicio en formato DD/MM/YYYY',
       defaultValue: '',
-    }
+    },
+    daySeleted: {
+      action: 'clickedDay',
+      description: 'Click Button',
+    },
   },
 };
 
@@ -24,7 +34,9 @@ export const Default: StoryObj<CalendarComponent> = {
     props: args,
     template: `
       <lib-calendar
-        [initDate]="initDate">
+        [initDate]="initDate"
+        [isRange]="isRange"
+        (daySeleted)="daySeleted($event)">
       </lib-calendar>
     `,
   }),
